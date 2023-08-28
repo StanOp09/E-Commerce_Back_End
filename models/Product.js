@@ -11,12 +11,22 @@ Product.init(
       allowNull: false,
     },
     price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10, 2), // 10 digits in total, 2 decimal places
       allowNull: false,
       validate: {
         isDecimal: true,
       },
+      get() {
+        // This function ensures that the price is always formatted with 2 decimal places
+        const rawValue = this.getDataValue('price');
+        return parseFloat(rawValue).toFixed(2);
+      },
+      set(value) {
+        // This function ensures that the stored value is always rounded to 2 decimal places
+        this.setDataValue('price', parseFloat(value).toFixed(2));
+      },
     },
+    
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
