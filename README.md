@@ -69,7 +69,6 @@
 
   ## Credits
   - Sean Roshan
-  - Chat GPT
   - [Express.js](https://expressjs.com/)
   - [Sequelize](https://sequelize.org/)
   - [MySQL2](https://dev.mysql.com/doc/)
